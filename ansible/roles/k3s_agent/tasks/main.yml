@@ -1,0 +1,30 @@
+- name: Set system timezone
+  timezone:
+    name: "{{ timezone }}"
+
+- name: Disable enterprise Proxmox repo
+  file:
+    path: /etc/apt/sources.list.d/pve-enterprise.list
+    state: absent
+
+- name: Add no-subscription Proxmox repo
+  apt_repository:
+    repo: deb http://download.proxmox.com/debian/pve bookworm no-subscription
+    filename: pve-no-subscription
+
+- name: Update & upgrade all packages
+  apt:
+    update_cache: yes
+    upgrade: dist
+    autoremove: yes
+
+- name: Install common utilities
+  apt:
+    name: "{{ common_packages }}"
+    state: latest
+
+- name: Ensure Chrony is running
+  service:
+    name: chrony
+    state: started
+    enabled: yes
