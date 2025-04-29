@@ -1,0 +1,7 @@
+ansible_user: root
+timezone: America/Denver
+
+# Vault these in real usage!
+cf_email: mcjones2010@gmail.com
+cf_api_key: aBhbd3cXRJhrYaZHgaT0JvAzljSEHNMInWq9sy0P
+cf_zone: clanjohar.com

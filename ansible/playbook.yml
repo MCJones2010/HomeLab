@@ -1,0 +1,17 @@
+- hosts: all
+  roles:
+    - bootstrap
+
+- hosts: storage
+  roles:
+    - zfs_nfs
+
+- hosts: main
+  roles:
+    - dnsmasq
+    - k3s_master
+    - ddns
+
+- hosts: micro
+  roles:
+    - k3s_agent
