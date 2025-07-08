@@ -1,4 +1,4 @@
-resourece "cloudflare_record" "homelab" {
+resource "cloudflare_record" "homelab" {
   zone_id = var.cf_zone_id
   name    = "@"
   type    = "A"
