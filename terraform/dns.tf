@@ -3,6 +3,6 @@ resource "cloudflare_record" "homelab" {
   name    = "@"
   type    = "A"
   value   = var.wan_ip
-  ttl     = 300
+  ttl     = 1
   proxied = true
 }
